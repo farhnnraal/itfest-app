@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "components/card.html" import card %}
+{% from "components/content_layout_text.html" import contentLayoutText %}
+{% from "components/kotak.html" import inputField %}
+
+{% block content %}
+    {% call card(config.icon, config.title, 'Step 1') %}
+        {% call contentLayoutText() %}
+            Tell Luna Nebulizer where it should be connected to by fill fields below.
+        {% endcall %}
+        {% call contentLayoutText() %}
+            <form action="" method="post">
+                {% call contentLayoutText() %}
+                    Wi-Fi name
+                {% endcall %}
+                {% call inputField() %}
+                    kk
+                {% endcall %}
+            </form>
+        {% endcall %}
+    {% endcall %}
+{% endblock %}

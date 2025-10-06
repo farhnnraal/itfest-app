@@ -1,12 +1,12 @@
 {# templates/components/content_layout_text.html #}
 
 <!-- Using paramters to quickly add simple content -->
-{% macro contentLayoutText() %}
+{% macro contentLayoutText(extra_classes='') %}
 <div class="flex flex-row items-center p-4">
     <div>
 
         <!-- Content | These element will change based on content -->
-        <p class="font-regular text-base">
+        <p class="font-regular text-base {{ extra_classes }}">
             {{ caller() }}
         </p>
 
