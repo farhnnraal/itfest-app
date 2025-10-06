@@ -1,0 +1,9 @@
+{# templates/components/content_layout.html #}
+
+<!-- Using paramters to quickly add simple content -->
+{% macro contentLayout(extra_classes='') %}
+<div class="flex flex-col items-center p-4 w-full">
+    <!-- Content | These element will change based on content -->
+    {{ caller() }}
+</div>
+{% endmacro %}

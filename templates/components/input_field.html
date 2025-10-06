@@ -1,0 +1,15 @@
+{# templates/components/input_field.html #}
+
+{% macro inputField(title='', labelFor='', inputType='', actionIcon='', actionIconAlt='') %}
+<div class="flex flex-col gap-y-2 w-auto">
+    <div class="flex flex-row justify-between items-center">
+        <label for="{{ labelFor }}">{{ title }}</label>
+        <img src="{{ actionIcon }}" alt="{{ actionIconAlt }}">
+    </div>
+    <div class="p-2 rounded-lg border-2 border-slate-300">
+        <input type="{{ inputType }}" name="{{ labelFor }}">
+    </div>
+</div>
+
+{{ caller() }}
+{% endmacro %}

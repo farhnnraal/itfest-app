@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% from "components/card.html" import card %}
 {% from "components/content_layout_text.html" import contentLayoutText %}
-{% from "components/kotak.html" import inputField %}
+{% from "components/content_layout.html" import contentLayout %}
+{% from "components/input_field.html" import inputField %}
+{% from "components/dashed_line.html" import dashedLine %}
 
 {% block content %}
-    {% call card(config.icon, config.title, 'Step 1') %}
+    {% set config = configuration_page['configuration'] %}
+    {% call card(config.svg, config.name, 'Step 2') %}
+        {% call dashedLine() %}
+        {% endcall %}
         {% call contentLayoutText() %}
             Tell Luna Nebulizer where it should be connected to by fill fields below.
         {% endcall %}
-        {% call contentLayoutText() %}
-            <form action="" method="post">
-                {% call contentLayoutText() %}
-                    Wi-Fi name
-                {% endcall %}
-                {% call inputField() %}
-                    kk
-                {% endcall %}
+        {% set passwordIcon = configuration_page['password_hidden'] %}
+        {% call contentLayout() %}
+            <form action="" method="post" class="w-full flex flex-col gap-y-4">
+                {% call inputField('Wi-Fi name', 'wifiname', 'text') %}{% endcall %}
+                {% call inputField('Password', 'password', 'password', passwordIcon.svg, passwordIcon.alt) %} {% endcall %}
             </form>
         {% endcall %}
     {% endcall %}

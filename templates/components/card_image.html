@@ -1,19 +1,19 @@
 {# templates/components/card.html #}
 
 <!-- Using parameters to quickly add simple content -->
-{% macro card_image(icon='', title='', intractIcon='', intractIconAlt='', extra_classes='') %}
+{% macro card_image(svg='', alt='', name='', svg2='', alt2='') %}
 <div class="rounded-2xl flex flex-col font-[Poppins] bg-white"> <!-- Card -->
     <div class="flex flex-row justify-between items-center p-4"> <!-- 1st layer -->
         <div class="flex flex-row gap-x-2 items-center"> <!-- 2nd layer -->
 
             <!-- Content | These element will change based on content -->
-            <img src="{{ icon }}" alt="{{ title }}">
-            <p class="font-semibold text-base">{{ title }}</p>
+            <img src="{{ svg }}" alt="{{ alt }}">
+            <p class="font-semibold text-base">{{ name }}</p>
 
         </div>
 
         <!-- Content | These element will change based on content -->
-        <img src="{{ intractIcon }}" alt="{{ intractIconAlt }}">
+        <img src="{{ svg2 }}" alt="{{ alt2 }}">
 
     </div>
 
