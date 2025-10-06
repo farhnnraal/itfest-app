@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "components/card_image.html" import card_image %}
+{% from "components/content_layout_text.html" import contentLayoutText %}
+
+{% block content %}
+<div class="flex flex-col gap-y-4">
+    {% set patientInformation = config[0] %}
+    {% call card_image(patientInformation.icon, patientInformation.title, patientInformation.intractIcon, patientInformation.intractIconAlt) %}
+    {% endcall %}
+
+    {% set nebulizerSettings = config[1] %}
+    {% call card_image(nebulizerSettings.icon, nebulizerSettings.title, nebulizerSettings.intractIcon,  nebulizerSettings.intractIconAlt) %}
+    {% endcall %}
+
+    {% set medicalReport = config[2] %}
+    {% call card_image(medicalReport.icon, medicalReport.title, medicalReport.intractIcon, medicalReport.intractIconAlt) %}
+    {% endcall %}
+
+    {% set about = config[3] %}
+    {% call card_image(about.icon, about.title, about.intractIcon, about.intractIconAlt) %}
+    {% endcall %}
+</div>
+{% endblock %}
+
+<script>
+    
+</script>
