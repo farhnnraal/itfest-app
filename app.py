@@ -19,9 +19,9 @@ app = Flask(__name__)
 # source venv/bin/activate
 # python app.py
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+# @app.route("/")
+# def index():
+#     return render_template("index.html")
 
 @app.route("/configuration/<step>")
 def configuration_steps(step):
