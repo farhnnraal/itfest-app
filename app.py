@@ -21,13 +21,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    sensors = [
-        {"name": "...", "value": "..."}
-    ]
+    return render_template("index.html")
 
+@app.route("/configuration/<step>")
+def configuration_steps(step):
     configuration = {"title": "Configuration", "icon": "/static/icon/svg/code.svg"}
 
-    return render_template("index.html", config=configuration)
+    return render_template(f"configuration/{step}.html", config=configuration)
 
 if __name__ == "__main__":
     app.run(debug=True)
