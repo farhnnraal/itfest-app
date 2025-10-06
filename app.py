@@ -23,42 +23,62 @@ app = Flask(__name__)
 # def index():
 #     return render_template("index.html")
 
+materials = {
+    "configuration": {
+        "name": "Configuration",
+        "svg": "/static/icon/svg/code.svg",
+        "alt": "configuration-icon",
+    },
+    "Patient Information": {
+        "name": "Patient Information",
+        "svg": "/static/icon/svg/patient.svg",
+        "alt": "patient-icon",
+    },
+    "Nebulizer Settings": {
+        "name": "Nebulizer Settings",
+        "svg": "/static/icon/svg/nebulizer.svg",
+        "alt": "nebulizer-icon"
+    },
+    "Medical Report": {
+        "name": "Medical Report",
+        "svg": "/static/icon/svg/report.svg",
+        "alt": "medical-report-icon"
+    },
+    "About": {
+        "name": "About",
+        "svg": "/static/icon/svg/about.svg",
+        "alt": "about-icon"
+    }
+}
+
+support_materials = {
+    "Show Password": {
+        "svg": "/static/icon/svg/eye.svg",
+        "alt": "show-password-icon"
+    },
+    "Hide Password": {
+        "svg": "/static/icon/svg/eye-slash.svg",
+        "alt": "hide-password-icon"
+    },
+    "Arrow Exinpand": {
+        "svg": "/static/icon/svg/arrow.svg",
+        "alt": "arrow-icon"
+    },
+    "Download": {
+        "svg": "/static/icon/svg/download.svg",
+        "alt": "download-icon"
+    }
+}
+
 @app.route("/configuration/<step>")
 def configuration_steps(step):
-    configuration = {"title": "Configuration", "icon": "/static/icon/svg/code.svg"}
 
-    return render_template(f"configuration/{step}.html", config=configuration)
+    return render_template(f"configuration/{step}.html", configuration_page = materials)
 
 @app.route("/dashboard")
 def dashboard():
-    materials = [
-        {
-            "title": "Patient Information",
-            "icon": "/static/icon/svg/patient.svg",
-            "intractIcon": "/static/icon/svg/arrow.svg",
-            "intractIconAlt": "Arrow-expand-inpand"
-        },
-        {
-            "title": "Nebulizer Settings",
-            "icon": "/static/icon/svg/nebulizer.svg",
-            "intractIcon": "/static/icon/svg/arrow.svg",
-            "intractIconAlt": "Arrow-expand-inpand"
-        },
-        {
-            "title": "Medical Report",
-            "icon": "/static/icon/svg/report.svg",
-            "intractIcon": "/static/icon/svg/download.svg",
-            "intractIconAlt": "Arrow-expand-inpand"
-        },
-        {
-            "title": "About",
-            "icon": "/static/icon/svg/about.svg",
-            "intractIcon": "/static/icon/svg/arrow.svg",
-            "intractIconAlt": "Arrow-expand-inpand"
-        }
-    ]
 
-    return render_template(f"dashboard/index.html", config=materials)
+    return render_template(f"dashboard/index.html", dashboard_page = materials, dashboard_support = support_materials)
 
 if __name__ == "__main__":
     app.run(debug=True)

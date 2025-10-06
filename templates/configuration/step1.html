@@ -3,13 +3,15 @@
 {% from "components/content_layout_text.html" import contentLayoutText %}
 
 {% block content %}
-    {# set configuration = card_names[0] #}
     {% call card(config.icon, config.title, 'Step 1') %}
         {% call contentLayoutText() %}
             Connect Luna Nebulizer with your device via cable.
         {% endcall %}
         {% call contentLayoutText() %}
             It can be USB A to Type C or Type C to Type C cable, as long it support data transmission.
+        {% endcall %}
+        {% call contentLayoutText('text-slate-400') %}
+            Next step will be shown after you finish the current step, or you can just swipe it.
         {% endcall %}
     {% endcall %}
 {% endblock %}

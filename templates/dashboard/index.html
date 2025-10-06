@@ -4,24 +4,28 @@
 
 {% block content %}
 <div class="flex flex-col gap-y-4">
-    {% set patientInformation = config[0] %}
-    {% call card_image(patientInformation.icon, patientInformation.title, patientInformation.intractIcon, patientInformation.intractIconAlt) %}
+    {% set download = dashboard_page['Download'] %}
+    {% set arrow = dashboard_page['Arrow Exinpand'] %}
+    {% set patient = dashboard_page['Patient Information'] %}
+    {% set nebulizer = dashboard_page['Nebulizer Settings'] %}
+    {% set medical_report = dashboard_page['Medical Report'] %}
+    {% set about = dashboard_page['About'] %}
+
+    {# This is patient card #}
+    {% call card_image(patient.svg, patient.alt, patient.name) %}
     {% endcall %}
 
-    {% set nebulizerSettings = config[1] %}
-    {% call card_image(nebulizerSettings.icon, nebulizerSettings.title, nebulizerSettings.intractIcon,  nebulizerSettings.intractIconAlt) %}
+    {# This is nebulizer card #}
+    {% call card_image(nebulizer.svg, nebulizer.alt, nebulizer.name) %}
     {% endcall %}
 
-    {% set medicalReport = config[2] %}
-    {% call card_image(medicalReport.icon, medicalReport.title, medicalReport.intractIcon, medicalReport.intractIconAlt) %}
+    {# This is medical_report card #}
+    {% call card_image(medical_report.svg, medical_report.alt, medical_report.name) %}
     {% endcall %}
 
-    {% set about = config[3] %}
-    {% call card_image(about.icon, about.title, about.intractIcon, about.intractIconAlt) %}
+    {# This is about card #}
+    {% call card_image(about.svg, about.alt, about.name) %}
     {% endcall %}
+
 </div>
 {% endblock %}
-
-<script>
-    
-</script>
