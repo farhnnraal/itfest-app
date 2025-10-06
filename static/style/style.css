@@ -1,0 +1,10 @@
+.dashed-line {
+  border-top: 2px dashed #e2e8f0; /* gray-400 */
+  border-image: repeating-linear-gradient(
+    to right,
+    #e2e8f0 0,
+    #e2e8f0 12px,   /* dash length */
+    transparent 12px,
+    transparent 24px  /* gap length */
+  ) 1;
+}
