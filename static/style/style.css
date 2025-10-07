@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .dashed-line {
   border-top: 2px dashed #e2e8f0; /* gray-400 */
   border-image: repeating-linear-gradient(
@@ -12,4 +17,13 @@
 input:focus {
   border: none;
   outline: none;
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
 }

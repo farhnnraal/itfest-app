@@ -1,0 +1,8 @@
+{% macro dashboardContent(title = '', content = '') %}
+<div class="flex justify-between font-base">
+    <span>{{ title }}</span>
+    <span class="font-semibold">{{ content }}</span>
+</div>
+
+{{ caller() }}
+{% endmacro %}

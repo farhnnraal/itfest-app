@@ -2,30 +2,35 @@
 {% from "components/card_image.html" import card_image %}
 {% from "components/content_layout_text.html" import contentLayoutText %}
 
+{% from "components/dashboard_card.html" import dashboardCard %}
+{% from "components/dashboard_content.html" import dashboardContent %}
+
+{# Calling materials and supports #}
+{% set download = dashboard_support['Download'] %}
+{% set arrow = dashboard_support['Arrow'] %}
+{% set patient = dashboard_page['Patient Information'] %}
+{% set nebulizer = dashboard_page['Nebulizer Settings'] %}
+{% set medical_report = dashboard_page['Medical Report'] %}
+{% set about = dashboard_page['About'] %}
+
 {% block content %}
 <div class="flex flex-col gap-y-4">
-    {% set download = dashboard_page['Download'] %}
-    {% set arrow = dashboard_page['Arrow Exinpand'] %}
-    {% set patient = dashboard_page['Patient Information'] %}
-    {% set nebulizer = dashboard_page['Nebulizer Settings'] %}
-    {% set medical_report = dashboard_page['Medical Report'] %}
-    {% set about = dashboard_page['About'] %}
-
     {# This is patient card #}
-    {% call card_image(patient.svg, patient.alt, patient.name) %}
+    {% call dashboardCard(patient.svg, patient.alt, patient.name, arrow.svg, arrow.alt) %}
+        {% call dashboardContent(title = 'Age', content = '19') %} {% endcall %}
+        {% call dashboardContent(title = 'Weight', content = '54 kg') %} {% endcall %}
     {% endcall %}
 
     {# This is nebulizer card #}
-    {% call card_image(nebulizer.svg, nebulizer.alt, nebulizer.name) %}
+    {% call card_image(nebulizer.svg, nebulizer.alt, nebulizer.name, arrow.svg, arrow.alt) %}
     {% endcall %}
 
     {# This is medical_report card #}
-    {% call card_image(medical_report.svg, medical_report.alt, medical_report.name) %}
+    {% call card_image(medical_report.svg, medical_report.alt, medical_report.name, download.svg, download.alt) %}
     {% endcall %}
 
     {# This is about card #}
-    {% call card_image(about.svg, about.alt, about.name) %}
+    {% call card_image(about.svg, about.alt, about.name, arrow.svg, arrow.alt) %}
     {% endcall %}
-
 </div>
 {% endblock %}
