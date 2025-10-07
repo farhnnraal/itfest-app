@@ -73,8 +73,19 @@
     <!-- step3 -->
     <!-- Supaya dia bisa digeser -->
     {% call sliderElement() %}
-        Buatkan saya halaman ke 3 laman ini sesuai dengan desain.
+        {% call card(config.svg, config.alt, config.name, 'Step 3') %}
+            {% call dashedLine() %}{% endcall %}
+            {% call contentLayoutText() %}
+                Luna Nebulizer successfully connected to wi-fi. Great job!
+            {% endcall %}
+            {% call contentLayoutText() %}
+                Give us a couple seconds to set up your dashboard.
+            {% endcall %}
+        {% endcall %}
     {% endcall %}
+
+    <!-- step4 -->
+     
 
 </div>
 {% endblock %}
