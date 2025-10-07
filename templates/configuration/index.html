@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from "components/card.html" import card %}
+{% from "components/content_layout_text.html" import contentLayoutText %}
+{% from "components/content_layout.html" import contentLayout %}
+{% from "components/input_field.html" import inputField %}
+{% from "components/dashed_line.html" import dashedLine %}
+{% from "components/slider_element.html" import sliderElement %}
+
+{# Calling materials and supports #}
+{% set config = configuration_page['Configuration'] %}
+{% set show_password = configuration_support['Show Password'] %}
+{% set hide_password = configuration_support['Hide Password'] %}
+
+{% block content %}
+<div class="hide-scrollbar flex space-x-4 overflow-x-auto snap-x snap-mandatory pb-4">
+    {% call sliderElement() %}
+        {% call card(config.svg, config.alt, config.name, 'Step 1') %}
+            {% call dashedLine() %}{% endcall %}
+            {% call contentLayoutText() %}
+                Connect Luna Nebulizer with your device via cable.
+            {% endcall %}
+            {% call contentLayoutText() %}
+                It can be USB A to Type C or Type C to Type C cable, as long it support data transmission.
+            {% endcall %}
+            {% call contentLayoutText('text-slate-400') %}
+                Next step will be shown after you finish the current step, or you can just swipe it.
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+    {% call sliderElement() %}
+        {% set config = configuration_page['Configuration'] %}
+            {% call card(config.svg, config.alt, config.name, 'Step 2') %}
+            {% call dashedLine() %} {% endcall %}
+            {% call contentLayoutText() %}
+                Tell Luna Nebulizer where it should be connected to by fill fields below.
+            {% endcall %}
+            {% set hide_password = configuration_support['Hide Password'] %}
+            {% call contentLayout() %}
+                <form action="" method="post" class="w-full flex flex-col gap-y-4">
+                    {% call inputField('Wi-Fi name', 'wifiname', 'text') %}{% endcall %}
+                    {% call inputField('Password', 'password', 'password', hide_password.svg, hide_password.alt) %} {% endcall %}
+                </form>
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+    {% call sliderElement() %}
+        Step3 / "congratulation" card
+    {% endcall %}
+</div>
+{% endblock %}

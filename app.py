@@ -24,7 +24,7 @@ app = Flask(__name__)
 #     return render_template("index.html")
 
 materials = {
-    "configuration": {
+    "Configuration": {
         "name": "Configuration",
         "svg": "/static/icon/svg/code.svg",
         "alt": "configuration-icon",
@@ -60,7 +60,7 @@ support_materials = {
         "svg": "/static/icon/svg/eye-slash.svg",
         "alt": "hide-password-icon"
     },
-    "Arrow Exinpand": {
+    "Arrow": {
         "svg": "/static/icon/svg/arrow.svg",
         "alt": "arrow-icon"
     },
@@ -70,14 +70,12 @@ support_materials = {
     }
 }
 
-@app.route("/configuration/<step>")
-def configuration_steps(step):
-
-    return render_template(f"configuration/{step}.html", configuration_page = materials)
+@app.route("/configuration")
+def configuration():
+    return render_template(f"configuration/index.html", configuration_page = materials, configuration_support = support_materials)
 
 @app.route("/dashboard")
 def dashboard():
-
     return render_template(f"dashboard/index.html", dashboard_page = materials, dashboard_support = support_materials)
 
 if __name__ == "__main__":
