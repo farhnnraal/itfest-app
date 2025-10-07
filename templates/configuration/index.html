@@ -13,6 +13,8 @@
 
 {% block content %}
 <div class="hide-scrollbar flex space-x-4 overflow-x-auto snap-x snap-mandatory pb-4">
+
+    <!-- step1 -->
     {% call sliderElement() %}
         {% call card(config.svg, config.alt, config.name, 'Step 1') %}
             {% call dashedLine() %}{% endcall %}
@@ -27,24 +29,52 @@
             {% endcall %}
         {% endcall %}
     {% endcall %}
+
+    <!-- step2 -->
+    <!-- Supaya bisa geser-geser -->
     {% call sliderElement() %}
+        <!-- Untuk manggil icon -->
         {% set config = configuration_page['Configuration'] %}
-            {% call card(config.svg, config.alt, config.name, 'Step 2') %}
+        <!-- Untuk buat kartu -->
+        {% call card(config.svg, config.alt, config.name, 'Step 2') %}
+
+            <!-- Garis abu putus-putus -->
             {% call dashedLine() %} {% endcall %}
+
+            <!-- Ini untuk teks aja -->
             {% call contentLayoutText() %}
+                <!-- Ini konten nya -->
                 Tell Luna Nebulizer where it should be connected to by fill fields below.
             {% endcall %}
-            {% set hide_password = configuration_support['Hide Password'] %}
+
+            <!-- Cara bikin komentar di VScode -->
+            <!-- CTRL + / -->
+
+            <!-- Untuk manggil icon mata -->
+            <!-- 'set' itu untuk buat variabel -->
+            <!-- 'hide_password' ini nama variabel nyak -->
+            <!-- 'configuration_support' ini nama variabel dari app.py untuk manggil icon -->
+            <!-- '['Hide Password']' ini untuk manggil kamus khusus -->
+            {% set hide_password = configuration_support['Show Password'] %}
+            <!-- Untuk bikin group buat input nama wi-fi dan password nya -->
+            <!-- Ini contentLayout -->
             {% call contentLayout() %}
                 <form action="" method="post" class="w-full flex flex-col gap-y-4">
+                    <!-- Untuk membuat kolom input, yang ini wi-fi -->
                     {% call inputField('Wi-Fi name', 'wifiname', 'text') %}{% endcall %}
+                    <!-- yang ini untuk password nya -->
                     {% call inputField('Password', 'password', 'password', hide_password.svg, hide_password.alt) %} {% endcall %}
                 </form>
             {% endcall %}
+
         {% endcall %}
     {% endcall %}
+
+    <!-- step3 -->
+    <!-- Supaya dia bisa digeser -->
     {% call sliderElement() %}
-        Step3 / "congratulation" card
+        Buatkan saya halaman ke 3 laman ini sesuai dengan desain.
     {% endcall %}
+
 </div>
 {% endblock %}
