@@ -15,12 +15,23 @@
 
 {% block content %}
 <div class="flex flex-col gap-y-4">
+
+    <!-- Cuma kartu yang benar -->
     {# This is patient card #}
-    {% call dashboardCard(patient.svg, patient.alt, patient.name, arrow.svg, arrow.alt) %}
+    <!-- 'call' dipakai untuk memanggil komponen -->
+    <!-- 'dashboardCard' ini nama dari komponen nya -->
+
+    <!-- Sedangkan bagian ini -->
+    <!-- patient.svg, patient.alt, patient.name, arrow.svg, arrow.alt -->
+    <!-- adalah icon, nama icon, judul, icon ke 2, nama icon ke 2. -->
+    <!-- Mereka adalah alamat untuk akses icon -->
+    <!-- call dashboardCard(icon='', alt='', title='', panel-id = '', button-id = '', icon2='', alt2='') -->
+    {% call dashboardCard(patient.svg, patient.alt, patient.name, 'patient-collapse-panel', 'patient-button-trigger', arrow.svg, arrow.alt) %}
         {% call dashboardContent(title = 'Age', content = '19') %} {% endcall %}
         {% call dashboardContent(title = 'Weight', content = '54 kg') %} {% endcall %}
     {% endcall %}
 
+    <!-- 3 kartu dibawah masih salah -->
     {# This is nebulizer card #}
     {% call card_image(nebulizer.svg, nebulizer.alt, nebulizer.name, arrow.svg, arrow.alt) %}
     {% endcall %}
@@ -32,5 +43,6 @@
     {# This is about card #}
     {% call card_image(about.svg, about.alt, about.name, arrow.svg, arrow.alt) %}
     {% endcall %}
+
 </div>
 {% endblock %}

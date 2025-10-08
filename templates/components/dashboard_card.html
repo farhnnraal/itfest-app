@@ -1,6 +1,6 @@
 {% from "components/dashed_line.html" import dashedLine %}
 
-{% macro dashboardCard(icon='', alt='', title='', icon2='', alt2='') %}
+{% macro dashboardCard(icon='', alt='', title='', panelId = '', buttonId = '', icon2='', alt2='') %}
 <div class="w-full mx-auto rounded-2xl shadow-2xl shadow-violet-200 bg-white">
 
     <!-- Header -->
@@ -25,13 +25,13 @@
         <!-- Expand/Collapse Button -->
         <button
             type="button"
-            onclick="togglePanel('collapsable-card', 'collapsable-card-conductor')"
+            onclick="togglePanel('{{ panelId }}', '{{ buttonId }}')"
             class="text-gray-500 hover:text-gray-700 transition-transform duration-200"
         >
 
             <!-- This can later change to another icon when collapsed -->
             <img 
-                id="collapsable-card-conductor" 
+                id="{{ buttonId }}" 
                 class="duration-200 ease-in-out" 
                 src="{{ icon2 }}" alt="{{ alt2 }}">
 
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Element below this comment will be hidden -->
-    <div id="collapsable-card" class="max-h-0 overflow-hidden duration-200 ease-in-out">
+    <div id="{{ panelId }}" class="max-h-0 overflow-hidden duration-200 ease-in-out">
         <!-- Divider -->
         {% call dashedLine() %} {% endcall %}
     
